@@ -1,16 +1,27 @@
+interface IDatabase{
+    void save();
+}
 class UserDao{
-    MySQLDatabase  dataBase;
+    IDatabase  dataBase;
 
-    public UserDao(MySQLDatabase  dataBase) {
+    public UserDao(IDatabase dataBase) {
         this.dataBase = dataBase;
     }
 
     public void save(){
-        this.dataBase.save();
+        dataBase.save();
     }
 }
 
-class MySQLDatabase {
+class MySQLDatabase implements IDatabase{
+    @Override
+    public void save(){
+
+    }
+}
+
+class MongoDB implements IDatabase{
+    @Override
     public void save(){
 
     }
@@ -18,8 +29,9 @@ class MySQLDatabase {
 
 public class DependencyInversion{
     public static void main(String[] args){
-        MySQLDatabase  dataBase = new MySQLDatabase ();
-        UserDao userDao = new UserDao(dataBase);
+        IDatabase database = new MySQLDatabase();
+        //IDatabase database = new MongoDB();
+        UserDao userDao = new UserDao(database);
         userDao.save();
     }
 }
