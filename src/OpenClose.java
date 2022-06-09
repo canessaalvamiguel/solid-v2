@@ -1,7 +1,21 @@
-class Square{
+interface Shape{
+    double area();
 }
 
-class Triangle{
+class Square implements Shape{
+    @Override
+    public double area() {
+        //A = a^2
+        return 0.0;
+    }
+}
+
+class Triangle implements Shape{
+    @Override
+    public double area() {
+        //A = h * b / 2
+        return 0.0;
+    }
 }
 
 public class OpenClose {
@@ -10,15 +24,7 @@ public class OpenClose {
         Triangle triangle = new Triangle();
     }
 
-    static Double calculateArea(Object o){
-        if( o  instanceof Square){
-            //A = a^2
-            return 0.0;
-        }
-        if( o instanceof Triangle){
-            //A = h * b / 2
-            return 0.0;
-        }
-        return 0.0;
+    static Double calculateArea(Shape o){
+        return o.area();
     }
 }
