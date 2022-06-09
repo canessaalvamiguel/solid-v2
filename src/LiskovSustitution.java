@@ -1,13 +1,14 @@
 class Bird{
-    public void fly(){
-
-    }
     public void eat(){
-
     }
 }
 
-class Eagle extends Bird{
+class FlyingBird extends Bird{
+    public void fly(){
+    }
+}
+
+class Eagle extends FlyingBird{
 
 }
 
