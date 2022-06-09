@@ -1,52 +1,33 @@
-interface IWorker{
+interface IHuman{
     void teaBreak();
-    void recharge();
     void lunch();
+}
+
+interface IRobot{
+    void recharge();
     void oilCheck();
 }
 
-class HumanWorker implements IWorker{
+class HumanWorker implements IHuman{
 
     @Override
     public void teaBreak() {
-
-    }
-
-    @Override
-    public void recharge() {
-
     }
 
     @Override
     public void lunch() {
-
     }
 
-    @Override
-    public void oilCheck() {
-
-    }
 }
 
-class RobotWorker implements IWorker{
-
-    @Override
-    public void teaBreak() {
-
-    }
+class RobotWorker implements IRobot{
 
     @Override
     public void recharge() {
-
     }
 
-    @Override
-    public void lunch() {
-
-    }
 
     @Override
     public void oilCheck() {
-
     }
 }
